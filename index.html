@@ -11,18 +11,220 @@
   <style>
     body { font-family: 'Segoe UI', Arial, sans-serif; }
     .top-bar {
-      background: #eef6ff;
+      background: #a6ceff;
       color: #000000;
       padding: 5px 0;
       font-size: 0.9rem;
     }
     .top-bar a { color: #ff0000; margin-left: 15px; text-decoration: none; }
-    .hero {
-      background: url('Images/BG.jpg') center/cover no-repeat;
-      color: #ffffff;
-      padding: 120px 0;
-      text-align: center;
+ .hero{
+    position:relative;
+    min-height:550px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    padding:120px 20px;
+
+    background:
+    linear-gradient(rgba(8,18,40,.82),rgba(8,18,40,.82)),
+    url("Images/BG.jpg") center center/cover no-repeat;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:950px;
+    width:100%;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 25px;
+    border-radius:50px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    color:#fff;
+    backdrop-filter:blur(15px);
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:72px;
+    font-weight:800;
+    color:#fff;
+    line-height:1.2;
+    margin-bottom:25px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    color:#d8dee9;
+    font-size:20px;
+    line-height:1.9;
+    margin-bottom:45px;
+}
+
+.hero-btns{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* Equal size buttons */
+.btn-hire,
+.btn-jobs{
+    width:220px;
+    height:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:600;
+    transition:.4s;
+}
+
+.btn-hire{
+    background:linear-gradient(135deg,#0d6efd,#6610f2);
+    color:#fff;
+    box-shadow:0 10px 30px rgba(13,110,253,.3);
+}
+
+.btn-jobs{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(15px);
+    color:#fff;
+}
+
+.btn-hire:hover,
+.btn-jobs:hover{
+    transform:translateY(-5px);
+    color:#fff;
+}
+
+/* Laptop */
+@media (max-width:1200px){
+
+    .hero{
+        min-height:700px;
     }
+
+    .hero h1{
+        font-size:58px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+}
+
+/* Tablet */
+@media (max-width:992px){
+
+    .hero{
+        min-height:650px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+    .hero{
+        min-height:auto; /* Important */
+        padding:120px 20px 80px;
+    }
+
+    .hero h1{
+        font-size:36px;
+        line-height:1.3;
+    }
+
+    .hero p{
+        font-size:16px;
+        line-height:1.8;
+        margin-bottom:30px;
+    }
+
+    .hero-btns{
+        flex-direction:column;
+        align-items:center;
+        gap:15px;
+    }
+
+    .btn-hire,
+    .btn-jobs{
+        width:260px;
+        height:55px;
+    }
+}
+
+/* Small phones */
+@media (max-width:576px){
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .btn-hire,
+    .btn-jobs{
+        width:100%;
+        max-width:260px;
+    }
+}
+
+/* Primary button */
+
+.btn-hire{
+    background:linear-gradient(135deg,#0d6efd,#6610f2);
+    color:white;
+    padding:16px 38px;
+    border-radius:60px;
+    font-weight:600;
+    font-size:17px;
+    text-decoration:none;
+    transition:.4s;
+    box-shadow:0 10px 30px rgba(13,110,253,.4);
+}
+
+.btn-hire:hover{
+    background:white;
+    color:#0d6efd;
+}
+
+/* Glass button */
+
+.btn-jobs{
+    padding:16px 38px;
+    border-radius:60px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    transition:.4s;
+}
+
+.btn-jobs:hover{
+    background:white;
+    color:#0d6efd;
+}
 
 
 /* keep original colors */
@@ -109,10 +311,10 @@
     .hero h1 { font-size: 2.5rem; font-weight: bold; }
     .hero p { font-size: 1.2rem; margin-bottom: 30px; }
     .feature-box { text-align: center; padding: 20px; }
-    .stats-box { background: #f8f9fa; padding: 30px; border-radius: 8px; text-align: center; }
-    .stats-box h3 { color: #0d6efd; font-weight: bold; }
+    .stats-box { background: #0080ff; padding: 30px; border-radius: 8px; text-align: center; }
+    .stats-box h3 { color: #ff0000; font-weight: bold; }
     .job-card { background: #fff; border: 1px solid #dee2e6; padding: 20px; text-align: center; border-radius: 8px; }
-    .cta { background: #e9ecef; padding: 50px 0; text-align: center; }
+    .cta { background: #2592ff; padding: 50px 0; text-align: center; }
     .footer { background: #212529; color: #fff; padding: 40px 0; text-align: center; }
     .carousel-item img { max-height: 80px; margin: auto; }
 
@@ -386,7 +588,38 @@
         transform:translateX(-50%);
     }
 }
+.cta-premium{
+    padding:80px 20px;
+    background:linear-gradient(#072357,#237bff);
+    text-align:center;
+}
 
+.cta-content h2{
+    color:#fff;
+    font-size:25px;
+}
+
+.cta-content p{
+    max-width:1000px;
+    margin:25px auto;
+    color:#d7e5ff;
+}
+
+.cta-btn{
+    display:inline-block;
+    padding:18px 50px;
+    background:white;
+    color:#0d6efd;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    transition:.4s;
+}
+
+.cta-btn:hover{
+    color: #ffffff;
+    background:#09ff00;
+}
 .job-card{
     background:#fff;
     text-align:center;
@@ -396,6 +629,19 @@
     background-color:#0d6efd
 }
 
+
+.cta-title{
+    font-size:58px;
+    font-weight:700;
+    color:white;
+    line-height:1.2;
+    letter-spacing:-1px;
+}
+
+.cta-title span{
+    font-weight: 650;
+    color:#dbeafe;
+}
 .founder-section{
     background:#f8f9fa;
 }
@@ -405,9 +651,7 @@
     height:400px;
     box-shadow:0 10px 90px rgba(32, 1, 1, 0.15);
 }
-.col-lg-8 h6{
-    color: #09ff00 !important;
-}
+
 .footer-section{
     background:#0f172a;
     color:#cbd5e1;
@@ -540,12 +784,38 @@
 
 <!-- Hero Banner -->
 <section class="hero">
-  <div class="container">
-    <h1>Connecting Top Talent with Leading BFSI & IT Organizations</h1>
-    <p>We deliver right-fit talent for your business needs through our domain expertise, advanced technology and commitment.</p>
-    <a href="#" class="btn btn-primary btn-lg me-2">Hire Talent</a>
-    <a href="#" class="btn btn-outline-light btn-lg">Find Jobs</a>
-  </div>
+    <div class="container hero-content text-center">
+
+        <div class="hero-badge">
+            <i class="bi bi-stars"></i>
+            Trusted Recruitment Partner
+        </div>
+
+        <h1>
+            Connecting <span>Exceptional Talent</span><br>
+            With Leading BFSI & IT Organizations
+        </h1>
+
+        <p>
+            Empowering businesses with high-performing professionals through
+            industry expertise, strategic talent acquisition, and a commitment
+            to excellence.
+        </p>
+
+        <div class="hero-btns">
+
+            <a href="contact.html" class="btn btn-hire">
+                Hire Talent
+                <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+
+            <a href="#Openings" class="btn btn-jobs">
+                Explore Opportunities
+            </a>
+
+        </div>
+
+    </div>
 </section>
 
 <!-- Features -->
@@ -797,8 +1067,8 @@
 
                 <div class="swiper-slide">
                     <div class="job-card">
-                        <h5>Java Developer</h5>
-                        <p>Pune | 3–5 Years</p>
+                        <h5>Head of Engineering</h5>
+                        <p>Pune | 10–15 Years</p>
                         <a href="#" class="btn btn-primary">Apply Now</a>
                     </div>
                 </div>
@@ -813,7 +1083,7 @@
 
                 <div class="swiper-slide">
                     <div class="job-card">
-                        <h5>Data Analyst</h5>
+                        <h5>FullStack Engineer</h5>
                         <p>Bangalore | 2–5 Years</p>
                         <a href="#" class="btn btn-primary">Apply Now</a>
                     </div>
@@ -829,7 +1099,7 @@
 
                 <div class="swiper-slide">
                     <div class="job-card">
-                        <h5>Python Developer</h5>
+                        <h5>Area Sales Manager</h5>
                         <p>Chennai | 2–4 Years</p>
                         <a href="#" class="btn btn-primary">Apply Now</a>
                     </div>
@@ -846,13 +1116,23 @@
 </section>
 
 <!-- Call to Action -->
-<section class="cta" id="Talent">
+<section class="cta-premium" id="Talent">
     <div class="container">
-        <h2>Looking for the Right Talent? Partner With Us.</h2>
+        <div class="cta-content">
+<h2 class="cta-title">
+    Looking for the Right Talent?
+    <br>
+    <span>Partner With Us.</span>
+</h2>
+            <p>
+                Empower your business with exceptional BFSI and IT professionals.
+                We deliver top talent that drives growth and success.
+            </p>
 
-        <a href="contact.html" class="btn btn-success btn-lg mt-3">
-            Get in Touch
-        </a>
+            <a href="contact.html" class="cta-btn">
+                Get in Touch →
+            </a>
+        </div>
     </div>
 </section>
 
@@ -869,8 +1149,7 @@
 
             <!-- Founder Details -->
             <div class="col-lg-8">
-                <h6 class="text-primary fw-bold">"Success is built by people, and our mission is to connect exceptional talent with organizations where they can thrive."</h6>
-                <h2 class="fw-bold mb-4">Meet Our Founder</h2>
+              <h2 class="fw-bold mb-4">Meet Our Founder</h2>
 
                 <p class="text-muted">
                     At Jove HR Services Pvt. Ltd., our mission is to bridge the gap between exceptional talent and leading organizations. We believe that recruitment is more than just filling positions—it is about creating meaningful careers and helping businesses build high-performing teams.
@@ -1091,3 +1370,4 @@ document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
 
 </body>
 </body>
+</html>
