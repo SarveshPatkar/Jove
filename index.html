@@ -643,13 +643,98 @@
     color:#dbeafe;
 }
 .founder-section{
-    background:#f8f9fa;
+    background: linear-gradient(135deg,#f8fbff,#eef5ff);
+}
+
+.founder-card{
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-card::before{
+    content:'';
+    position:absolute;
+    top:-100px;
+    right:-100px;
+    width:250px;
+    height:250px;
+    background: linear-gradient(135deg,#0d6efd,#4db8ff);
+    opacity:.1;
+    border-radius:50%;
+}
+
+.founder-image-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .founder-img{
-    width:300px;
-    height:400px;
-    box-shadow:0 10px 90px rgba(32, 1, 1, 0.15);
+    width: 100%;
+    max-width: 350px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08),
+        0 20px 60px rgba(0,0,0,0.12);
+    transition: all .4s ease;
+}
+
+
+.founder-tag{
+    display:inline-block;
+    background:rgba(13,110,253,.1);
+    color:#0d6efd;
+    padding:8px 18px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.founder-title{
+    font-size:42px;
+    font-weight:700;
+    color:#1c1c1c;
+    margin-bottom:25px;
+}
+
+.founder-text{
+    color:#666;
+    line-height:1.9;
+    font-size:16px;
+}
+
+.founder-info{
+    border-left:4px solid #0d6efd;
+    padding-left:20px;
+}
+
+.founder-info h4{
+    margin-bottom:5px;
+    font-weight:700;
+    color:#111;
+}
+
+.founder-info span{
+    color:#0d6efd;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+@media(max-width:768px){
+    .founder-card{
+        padding:30px;
+    }
+
+    .founder-title{
+        font-size:32px;
+    }
 }
 
 .footer-section{
@@ -1140,29 +1225,39 @@
 <!-- Founder Section -->
 <section class="founder-section py-5" id="Founders">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="founder-card">
+            <div class="row align-items-center">
 
-            <!-- Founder Image -->
-            <div class="col-lg-4 text-center">
-                <img src="Images/founder.jpg" class="founder-img" alt="Founder">
+                <!-- Founder Image -->
+<div class="col-lg-4 text-center mb-4 mb-lg-0">
+    <div class="founder-image-wrapper">
+        <img src="Images/founder.jpg" class="founder-img" alt="Founder">
+    </div>
+</div>
+
+                <!-- Founder Details -->
+                <div class="col-lg-8">
+                    <span class="founder-tag">Leadership & Vision</span>
+
+                    <h2 class="founder-title mt-3">
+                        Meet Our Founder
+                    </h2>
+
+                    <p class="founder-text">
+                        At Jove HR Services Pvt. Ltd., our mission is to bridge the gap between exceptional talent and leading organizations. We believe that recruitment is more than just filling positions—it is about creating meaningful careers and helping businesses build high-performing teams.
+                    </p>
+
+                    <p class="founder-text">
+                        Through integrity, professionalism, and a client-centric approach, we strive to deliver reliable and innovative recruitment solutions across BFSI and IT sectors.
+                    </p>
+
+                    <div class="founder-info mt-4">
+                        <h4>Ms. Bijal Vora</h4>
+                        <span>Founder & Director</span>
+                    </div>
+                </div>
+
             </div>
-
-            <!-- Founder Details -->
-            <div class="col-lg-8">
-              <h2 class="fw-bold mb-4">Meet Our Founder</h2>
-
-                <p class="text-muted">
-                    At Jove HR Services Pvt. Ltd., our mission is to bridge the gap between exceptional talent and leading organizations. We believe that recruitment is more than just filling positions—it is about creating meaningful careers and helping businesses build high-performing teams.
-                </p>
-
-                <p class="text-muted">
-                    Through integrity, professionalism, and a client-centric approach, we strive to deliver reliable and innovative recruitment solutions across BFSI and IT sectors.
-                </p>
-
-                <h5 class="mt-4 mb-0">Ms.Bijal Vora</h5>
-                <p class="text-primary">Founder & Director</p>
-            </div>
-
         </div>
     </div>
 </section>
