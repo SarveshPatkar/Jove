@@ -1007,9 +1007,12 @@
     animation: cleanFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Crisp, professional accent bar */
+/* ----------------------------------------------------
+   1. BASE STYLES (Default: Desktop & Large Laptops)
+------------------------------------------------------- */
 .classic-line-accent {
     width: 501px;
+    max-width: 90%; /* Prevents accidental overflow on smaller laptops */
     height: 2px;
     background: #0d6efd; /* Crisp brand blue */
     margin: 24px auto 0 auto;
@@ -1017,6 +1020,37 @@
     transform: scaleX(0);
     transform-origin: center;
     animation: cleanLineExtend 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+/* ----------------------------------------------------
+   2. TABLETS & SMALL LAPTOPS (e.g., iPads, 1024px and down)
+------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+    .classic-line-accent {
+        width: 400px; /* Slightly shorter for a balanced look on tablets */
+        margin-top: 20px;
+    }
+}
+
+/* ----------------------------------------------------
+   3. MOBILE DEVICES (e.g., iPhones, Pixels, 480px and down)
+------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+    .classic-line-accent {
+        /* Scales fluidly on mobile so it never breaks the screen width */
+        width: 70%; 
+        height: 2px; /* Keeps it crisp */
+        margin-top: 16px; /* Tighter spacing for smaller screens */
+    }
+}
+
+/* ----------------------------------------------------
+   THE KEYFRAME ANIMATION (Kept here for reference)
+------------------------------------------------------- */
+@keyframes cleanLineExtend {
+    to {
+        transform: scaleX(1);
+    }
 }
 
 /* --- Clean Animations --- */
