@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now | Jove HR Services Pvt. Ltd.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           PREMIUM DYNAMIC ENGINE VARIATION VARIABLES
+           ========================================================================== */
+        :root {
+            /* Smooth transitions for on-the-fly skin changing */
+            --transition-speed: 0.5s;
+            --curve: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* DEFAULT / INTERNAL MODE CONFIG: Premium Blue and Indigo Canvas Styles */
+        body {
+            background: linear-gradient(135deg, #f4f9ff 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            font-family: system-ui, -apple-system, sans-serif;
+            transition: background var(--transition-speed) var(--curve);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before, body::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: 0;
+            pointer-events: none;
+            transition: background var(--transition-speed) var(--curve);
+        }
+
+        /* Default Ambient Glowing Shapes (Internal - Blue) */
+        body::before {
+            width: 350px;
+            height: 350px;
+            top: -5%;
+            left: -10%;
+            background: radial-gradient(circle, rgba(13, 110, 253, 0.08) 0%, transparent 70%);
+        }
+        body::after {
+            width: 450px;
+            right: -5%;
+            height: 450px;
+            background: radial-gradient(circle, rgba(102, 16, 242, 0.06) 0%, transparent 70%);
+        }
+
+        /* CURRENT OPENINGS MODE CONFIG: Dark Green / Luxury Emerald Teal Canvas */
+        body.mode-current-openings {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e2e8f0 100%);
+        }
+        body.mode-current-openings::before {
+            background: radial-gradient(circle, rgba(21, 128, 61, 0.08) 0%, transparent 70%);
+        }
+        body.mode-current-openings::after {
+            background: radial-gradient(circle, rgba(4, 120, 87, 0.06) 0%, transparent 70%);
+        }
+
+        /* --- Premium Floating Glassmorphic Application Box --- */
+        .apply-card {
+            max-width: 650px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 50px 40px;
+            border-radius: 24px;
+            z-index: 1;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.06);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: border-color var(--transition-speed), box-shadow 0.4s;
+        }
+
+        .apply-card:hover {
+            box-shadow: 0 40px 80px rgba(15, 23, 42, 0.1);
+        }
+
+        /* --- Input fields and UI Controls UI Updates --- */
+        .form-label {
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.9rem;
+            letter-spacing: 0.2px;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            color: #0f172a;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Readonly/Disabled Position Box Style */
+        .form-control[readonly] {
+            background: rgba(241, 245, 249, 0.8);
+            font-weight: 600;
+            color: #475569;
+            border-style: dashed;
+        }
+
+        /* --- High Performance Button Submits --- */
+        .btn-submit {
+            height: 54px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- COMPONENT THEME INJECTIONS --- */
+        
+        /* Internal Theme Injection (Blue Accent) */
+        body:not(.mode-current-openings) h2 {
+            color: #0f172a;
+            background: linear-gradient(135deg, #0066ff 0%, #6610f2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        body:not(.mode-current-openings) .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.12);
+            background: #ffffff;
+        }
+        body:not(.mode-current-openings) .btn-submit {
+            background: linear-gradient(135deg, #0d6efd 0%, #1e40af 100%);
+            color: white;
+        }
+        body:not(.mode-current-openings) .btn-submit:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(13, 110, 253, 0.25);
+        }
+
+        /* Current Openings Theme Injection (Dark Green Accent) */
+        body.mode-current-openings h2 {
+            color: #0f172a;
+            background: linear-gradient(135deg, #00291c 0%, #047857 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        body.mode-current-openings .form-control:focus {
+            border-color: #059669;
+            box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.12);
+            background: #ffffff;
+        }
+        body.mode-current-openings .btn-submit {
+            background: linear-gradient(135deg, #059669 0%, #064e3b 100%);
+            color: white;
+        }
+        body.mode-current-openings .btn-submit:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(5, 150, 105, 0.25);
+        }
+
+        /* File input specialized layout style */
+        input[type="file"]::file-selector-button {
+            background: #f1f5f9;
+            border: none;
+            border-radius: 6px;
+            padding: 4px 12px;
+            font-weight: 600;
+            color: #475569;
+            margin-right: 12px;
+            transition: background 0.2s;
+        }
+        input[type="file"]:hover::file-selector-button {
+            background: #e2e8f0;
+        }
+
+        /* --- Keyframe Framework --- */
+        @keyframes cardEntrance {
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <div class="apply-card">
+        <h2 class="text-center mb-4">Apply Now</h2>
+        
+        <form id="applyForm">
+            <!-- Hidden field for career section type (internal / external) -->
+            <input type="hidden" id="type">
+
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="name" class="form-control" required autocomplete="name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control" required autocomplete="email">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="text" name="phone" class="form-control" required autocomplete="tel">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Experience</label>
+                <input type="text" name="experience" class="form-control" placeholder="Example: 2 Years">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Position</label>
+                <input type="text" id="position" class="form-control" readonly tabIndex="-1">
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Upload Resume (PDF, DOC, DOCX)</label>
+                <input type="file" id="resume" class="form-control" accept=".pdf,.doc,.docx" required>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn btn-primary w-100 btn-submit">
+                Submit Application
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Replace this with your exact active Web App Deployment URL from Apps Script
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbjEDXUXcpmEiDyzglaNqGJqubPtjEwTPMCxdfaPykj0QftAs2VlN4zZQxfA9YuNs3/exec";
+
+    // Read URL query parameters (?position=Developer&type=internal)
+    const params = new URLSearchParams(window.location.search);
+    const positionVal = params.get("position") || "";
+    const typeVal = params.get("type") || "external";
+
+    document.getElementById("position").value = positionVal;
+    document.getElementById("type").value = typeVal;
+
+    // INTERACTION ENGINE: Swaps canvas body skins programmatically based on parameter inputs
+    if (typeVal.toLowerCase() === "external" || typeVal.toLowerCase() === "current-openings") {
+        document.body.classList.add("mode-current-openings");
+    }
+
+    document.getElementById("applyForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const btn = document.getElementById("submitBtn");
+        btn.disabled = true;
+        btn.innerHTML = "Submitting...";
+
+        const file = document.getElementById("resume").files[0];
+
+        if (!file) {
+            alert("Please upload a resume");
+            btn.disabled = false;
+            btn.innerHTML = "Submit Application";
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = async function () {
+            // Build payload layout matching the expected structure in Code.gs
+            const data = {
+                type: document.getElementById("type").value,
+                name: document.querySelector('[name="name"]').value,
+                email: document.querySelector('[name="email"]').value,
+                phone: document.querySelector('[name="phone"]').value,
+                experience: document.querySelector('[name="experience"]').value,
+                position: document.getElementById("position").value,
+                fileName: file.name,
+                mimeType: file.type,
+                fileData: reader.result.split(",")[1] // Strips out base64 metadata headers
+            };
+
+            try {
+                // Fetching via 'no-cors' mode is critical for web apps to avoid network drops
+                await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors", 
+                    headers: {
+                        "Content-Type": "text/plain;charset=utf-8",
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // Under no-cors, if the promise doesn't throw a catch block error, execution is clean.
+                alert("Application submitted successfully!");
+                
+                // Form cleanup
+                document.getElementById("applyForm").reset();
+                document.getElementById("position").value = params.get("position") || "";
+                document.getElementById("type").value = typeVal;
+
+            } catch (err) {
+                console.error("Submission error details: ", err);
+                alert("Network error or configuration error. Please try again.");
+            }
+
+            // Reset button states
+            btn.disabled = false;
+            btn.innerHTML = "Submit Application";
+        };
+
+        reader.readAsDataURL(file);
+    });
+</script>
+
+</body>
+</html>
