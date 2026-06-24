@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jove HR Services Private Limited</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <style>
     body { font-family: 'Segoe UI', Arial, sans-serif; }
@@ -1007,6 +1010,7 @@
     animation: cleanFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Crisp, professional accent bar */
 /* ----------------------------------------------------
    1. BASE STYLES (Default: Desktop & Large Laptops)
 ------------------------------------------------------- */
@@ -1073,12 +1077,81 @@
         font-size: 2rem;
     }
 }
+
+[data-aos]{
+    transition-property: transform, opacity !important;
+}
+
+.about-feature,
+.industry-card,
+.service-card-premium,
+.job-card,
+.founder-card{
+    will-change: transform;
+}
+
+.about-feature:hover,
+.industry-card:hover,
+.service-card-premium:hover,
+.job-card:hover{
+    transform: translateY(-12px);
+}
+.reveal{
+    opacity:0;
+    transform:translateY(80px);
+    transition:all 1s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+.section-reveal{
+    opacity:0;
+    transform:translateY(80px);
+    transition:
+    opacity 1s cubic-bezier(.16,1,.3,1),
+    transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+.section-reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+.cursor-glow{
+position:fixed;
+width:350px;
+height:350px;
+border-radius:50%;
+background:
+radial-gradient(rgba(13,110,253,.15),transparent 70%);
+pointer-events:none;
+filter:blur(80px);
+transform:translate(-50%,-50%);
+z-index:-1;
+}
+
+.founder-img{
+animation:floatImage 6s ease-in-out infinite;
+}
+
+@keyframes floatImage{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
 </style>
 
 </head>
 
 <body>
-
+<div class="cursor-glow"></div>
 <!-- Top Bar -->
 <div class="top-bar">
     <div class="container">
@@ -1185,7 +1258,7 @@
 
 <!-- About Us -->
 <!-- About Section -->
-<section class="about-section" id="about">
+<section class="about-section section-reveal" id="about">
     <div class="container">
 
         <!-- Center Heading -->
@@ -1212,7 +1285,7 @@
         <!-- Feature Cards -->
         <div class="row mt-5 g-4">
 
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-up">
                 <div class="about-feature text-center h-100">
                     <div class="feature-icon mb-3">🏆</div>
                     <h5>Industry Expertise</h5>
@@ -1220,7 +1293,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="about-feature text-center h-100">
                     <div class="feature-icon mb-3">⚡</div>
                     <h5>Fast Turnaround</h5>
@@ -1228,7 +1301,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="about-feature text-center h-100">
                     <div class="feature-icon mb-3">🌏</div>
                     <h5>PAN India Presence</h5>
@@ -1243,7 +1316,7 @@
 
 
 <!-- Services Section -->
-<section class="services-section py-5" id="Services">
+<section class="services-section py-5 section-reveal" id="Services">
     <div class="container">
 
         <div class="text-center mb-5 section-header-reveal">
@@ -1254,7 +1327,8 @@
 
         <!-- Grid with Interactive Kinetic Cards -->
         <div class="row g-4 interactive-service-matrix">
-            <div class="col-lg-4 col-md-6 matrix-item">
+            <div class="col-lg-4 col-md-6 matrix-item"
+data-aos="zoom-in-up">
                 <div class="service-card-premium">
                     <div class="kinetic-bg"></div>
                     <div class="service-icon-box">👨‍💼</div>
@@ -1264,7 +1338,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 matrix-item">
+            <div class="col-lg-4 col-md-6 matrix-item"
+data-aos="zoom-in-up">
                 <div class="service-card-premium">
                     <div class="kinetic-bg"></div>
                     <div class="service-icon-box">📈</div>
@@ -1274,7 +1349,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 matrix-item">
+            <div class="col-lg-4 col-md-6 matrix-item"
+data-aos="zoom-in-up">
                 <div class="service-card-premium">
                     <div class="kinetic-bg"></div>
                     <div class="service-icon-box">🎯</div>
@@ -1284,7 +1360,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 matrix-item">
+            <div class="col-lg-4 col-md-6 matrix-item"
+data-aos="zoom-in-up">
                 <div class="service-card-premium">
                     <div class="kinetic-bg"></div>
                     <div class="service-icon-box">🚀</div>
@@ -1294,7 +1371,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 matrix-item">
+            <div class="col-lg-4 col-md-6 matrix-item"
+data-aos="zoom-in-up">
                 <div class="service-card-premium">
                     <div class="kinetic-bg"></div>
                     <div class="service-icon-box">🔍</div>
@@ -1304,7 +1382,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 matrix-item">
+            <div class="col-lg-4 col-md-6 matrix-item"
+data-aos="zoom-in-up">
                 <div class="service-card-premium">
                     <div class="kinetic-bg"></div>
                     <div class="service-icon-box">🤝</div>
@@ -1319,7 +1398,7 @@
 </section>
 
 <!-- Industries -->
-<section class="industry-section" id="Industries">
+<section class="industry-section section-reveal" id="Industries">
 
 <div class="container">
 
@@ -1499,20 +1578,22 @@
 
 
 <!-- Founder Section -->
-<section class="founder-section py-5" id="Founders">
+<section class="founder-section py-5 section-reveal" id="Founders">
     <div class="container">
         <div class="founder-card">
             <div class="row align-items-center">
 
                 <!-- Founder Image -->
-<div class="col-lg-4 text-center mb-4 mb-lg-0">
+<div class="col-lg-4 text-center mb-4 mb-lg-0"
+data-aos="fade-right">
     <div class="founder-image-wrapper">
         <img src="Images/Founder.jpeg" class="founder-img" alt="Founder">
     </div>
 </div>
 
                 <!-- Founder Details -->
-                <div class="col-lg-8">
+                <div class="col-lg-8"
+data-aos="fade-left">
                     <span class="founder-tag">Leadership & Vision</span>
 
                     <h2 class="founder-title mt-3">
@@ -1705,6 +1786,55 @@ document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)').forEach
     });
 });
 </script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration: 1000,
+    easing: "ease-out-cubic",
+    once: true,
+    offset: 100
+});
+</script>
+
+<script>
+
+const observer = new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("active");
+
+}
+
+});
+
+},{
+threshold:.15
+});
+
+document.querySelectorAll(".section-reveal")
+.forEach(section=>{
+
+observer.observe(section);
+
+});
+
+
+</script>
+<script>
+
+const glow=document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+
+});
+
+</script>
 </body>
 </body>
-</html>
